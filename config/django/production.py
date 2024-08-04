@@ -5,7 +5,6 @@ DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django_d1',
@@ -15,3 +14,8 @@ DATABASES = {
         'CLOUDFLARE_TOKEN': env('CF_TOKEN'),
     }
 }
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+SECURE_SSL_REDIRECT = True
