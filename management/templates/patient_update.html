@@ -1,0 +1,73 @@
+{% extends 'static/base.html' %}
+
+
+{% block content %}
+<h1>Aktualizuj dane</h1>
+<br/>
+<form action="" method="POST">
+    {% csrf_token %}   
+    <div class="d-flex flex-row justify-content-between">
+        <p style="margin-right: 5px;">{{ user_form_update.hcc_num }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.kons_date }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.first_name }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.last_name }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.grkrwi }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.phone }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.email }}</p> 
+        <p style="margin-right: 5px;">{{ user_form_update.pesnum }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.age }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.patheight }}</p>
+        <p style="margin-right: 5px;">{{ user_form_update.patweight }}</p>
+        <p style="width: 16%;">{{ user_form_update.gender }}</p>
+    </div> 
+          
+    <h5>Infomacje o guzie</h5>
+    <div class="d-flex flex-row justify-content-between">       
+        <p style="font-size: 12px;">ECOG{{ info_form_update.ecog }}</p>  
+        <p style="font-size: 12px;">Data badania{{ info_form_update.lab_date }}</p>
+        <p style="font-size: 12px;">Liczba guzów{{ info_form_update.tumor_num }}</p>
+        <p style="font-size: 12px;">Miejsce guza{{ info_form_update.tumor_place }}</p>
+        <p style="font-size: 12px;">Średnica{{ info_form_update.top_diameter }}</p>
+        <p style="font-size: 12px;">Li-Rads{{ info_form_update.li_rads_hcc }}</p>
+    </div>   
+     
+    <!--  -->
+    <h5>Badania laboratoryjne</h5>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="margin-right: 5px; font-size: 12px;">Albumina<br/>{{ info_form_update.albuminy }}</p> 
+        <p style="margin-right: 5px; font-size: 12px;">INR<br/>{{ info_form_update.inr}}</p>
+        <p style="margin-right: 5px; font-size: 12px;">Kreatynina<br/>{{ info_form_update.kreatynina }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">Sód surowica<br/>{{ info_form_update.sod_surowica }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">Billirubina cał<br/>{{ info_form_update.bilirubina_cal }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">AFP<br/>{{ info_form_update.afp }}</p> 
+        <p style="margin-right: 5px; font-size: 12px;">PLT<br/>{{ info_form_update.plt }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">CEA<br/>{{ info_form_update.cea }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">CA19-9<br/>{{ info_form_update.ca19_9 }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">Cukrzyca<br/>{{ info_form_update.cukrzyca }}</p>
+    </div>
+
+    <div class="d-flex flex-row justify-content-start mr-auto">
+        <p style="margin-right: 5px; font-size: 12px;">Marskość<br/>{{ info_form_update.marskosc }}</p> 
+        <p style="margin-right: 5px; font-size: 12px;">Wodobrzusze<br/>{{ info_form_update.wodobrzusze }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">Encefalopatia<br/>{{ info_form_update.encefalopatia }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">HBV<br/>{{ info_form_update.hbv }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">HCV<br/>{{ info_form_update.hcv }}</p>
+        <p style="margin-right: 5px; font-size: 12px;">Dezyzja po konsylium{{ user_form_update.decision }}</p>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col">
+            <p>{{ user_form_update.comment }}</p>
+        </div>
+        <div class="col">
+            <p>{{ user_form_update.leczenie }}</p>
+        </div>
+    </div>
+    <br/>
+    <a class="btn btn-outline-secondary" href="{% url 'patient-ls' %}">Anuluj</a>
+    <button type="submit" class="btn btn-warning">Aktualizuj</button>               
+</form>
+
+</br></br>
+
+{% endblock %}

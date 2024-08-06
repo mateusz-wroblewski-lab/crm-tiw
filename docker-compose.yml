@@ -1,0 +1,14 @@
+networks:
+  outside:
+    driver: bridge
+    external: true
+
+services:
+  crmtiw-app:
+    container_name: crmtiw-app
+    image: crmtiw-img-6
+    ports:
+      - 8002:8000
+    restart: always
+    networks:
+      - outside

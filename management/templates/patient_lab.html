@@ -1,0 +1,92 @@
+{% extends 'static/base.html' %}
+
+
+
+{% block content %}
+  <div class="fs-2">
+    Pacjent:&nbsp;
+    <strong>
+      {{ patient_base.first_name }} {{ patient_base.last_name }}
+    </strong> 
+  </div>
+<br/>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item"><a class="nav-link text-secondary" href="patient_profile.html">Dane</a></li>  
+  <li class="nav-item"><a class="nav-link active" href="patient_lab.html">Badania</a></li>
+</ul>
+
+
+<table class="table">
+  <br/>
+  <h5>Guz wątroby</h5>
+  <thead>
+    <tr>
+      <th scope="col">HCC</th>
+      <th scope="col">Date</th>
+      <th scope="col">Ilość</th>
+      <th scope="col">Miejsce</th>
+      <th scope="col">Średnica</th>
+      <th scope="col">LI-RADS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>{{ patient_lab.hcc_num }}</th>
+      <td>{{ patient_lab.lab_date }}</td>
+      <th>{{ patient_lab.tumor_num }}</th>
+      <td>{{ patient_lab.tumor_place }}</td>
+      <td>{{ patient_lab.top_diameter }}</td>
+      <td>{{ patient_lab.li_rads_hcc }}</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table">
+  <br/>
+  <h5>Badania laboratoryjne</h5>
+  <thead>
+    <tr>
+      <th scope="col">Albumina</th>
+      <th scope="col">INR</th>
+      <th scope="col">Kreatynina</th>
+      <th scope="col">Sód surowica</th>
+      <th scope="col">Billirubina całkowita</th>
+      <!--  -->
+      <th scope="col">AFP</th>
+      <th scope="col">PLT</th>
+      <th scope="col">CEA</th>
+      <th scope="col">CA19-9</th>
+      <th scope="col">Cukrzyca</th>
+      <!--  -->
+      <th scope="col">Marskość</th>
+      <th scope="col">Wodobrzusze</th>
+      <th scope="col">Encefalopatia</th>
+      <th scope="col">HBV</th>
+      <th scope="col">HCV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ patient_lab.albuminy }}</td>
+      <td>{{ patient_lab.inr }}</td>
+      <td>{{ patient_lab.kreatynina }}</td>
+      <td>{{ patient_lab.sod_surowica }}</td>
+      <td>{{ patient_lab.bilirubina_cal }}</td>
+      <!--  -->
+      <td>{{ patient_lab.afp }}</td>
+      <td>{{ patient_lab.plt }}</td>
+      <td>{{ patient_lab.cea }}</td>
+      <td>{{ patient_lab.ca19_9 }}</td>
+      <td>{{ patient_lab.cukrzyca }}</td>
+      <!--  -->
+      <td>{{ patient_lab.marskosc }}</td>
+      <td>{{ patient_lab.wodobrzusze }}</td>
+      <td>{{ patient_lab.encefalopatia }}</td>
+      <td>{{ patient_lab.hbv }}</td>
+      <td>{{ patient_lab.hcv }}</td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<a class="btn btn-outline-warning" href="{% url 'patient-ls' %}">Powrót</a>
+{% endblock %}
