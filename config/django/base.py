@@ -5,7 +5,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -16,10 +16,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fontawesomefree',
     'crm',
     'management',
     'members',
     'patients',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
